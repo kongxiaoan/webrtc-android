@@ -1,9 +1,9 @@
 package com.webrtc.android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.webrtc.android.databinding.ActivityMainBinding
+import com.webrtc.android.websocket.WebsocketClient
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        WebsocketClient()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         // Used to load the 'android' library on application startup.
         init {
-            System.loadLibrary("android")
+            System.loadLibrary("webrtc-android")
         }
     }
 }
